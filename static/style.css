@@ -1,0 +1,207 @@
+/* 1. Reset and Variables */
+:root {
+    --uber-black: #000000;
+    --uber-white: #ffffff;
+    --uber-blue: #276ef1;
+    --success-green: #06c167; /* Added for interaction */
+    
+    /* GLASSMORPHISM VARIABLES */
+    --glass-bg: rgba(0, 0, 0, 0.7); /* Deep dark tint */
+    --glass-border: rgba(255, 255, 255, 0.1); /* Subtle white edge */
+    --row-bg: rgba(255, 255, 255, 0.03); /* Faint highlight for rows */
+}
+
+/* 2. Global Styling and Perfect Centering */
+body {
+    /* Set the Car background. Ensure it doesn't move or repeat. */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('carss.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
+    color: var(--uber-white);
+    font-family: 'Montserrat', sans-serif; /* Modern tech font */
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    min-height: 100vh;      /* Use full viewport height */
+    padding: 20px;
+}
+
+/* 3. The Innovative "Glass" Container */
+.glass-container {
+    width: 90%;
+    max-width: 1200px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px); /* This blurs the car behind the box */
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    
+    border-radius: 24px;
+    padding: 50px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); /* Deep shadow for float */
+}
+
+/* 4. Header, Logo, and Badge Styling */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 15px;
+}
+
+.dashboard-logo {
+    height: 40px; /* Adjust based on your logo shape */
+    filter: invert(1); /* Keeps a black logo white on this dark background */
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.badge {
+    background: var(--uber-blue);
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* 5. Input Form (CRUD) Styling */
+.form-container {
+    margin-bottom: 40px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) 60px; /* Small column just for the plus icon */
+    gap: 15px;
+}
+
+input {
+    background: rgba(255, 255, 255, 0.05); /* Faint input bg */
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--uber-blue);
+}
+
+.btn-add {
+    background: var(--uber-white);
+    color: var(--uber-black);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: var(--uber-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(39, 110, 241, 0.3);
+}
+
+/* 6. Modern Table & Action Icons */
+table {
+    width: 100%;
+    border-collapse: separate; /* Required for the spacing effect */
+    border-spacing: 0 10px;    /* Floating card row spacing */
+}
+
+th {
+    text-align: left;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+th i {
+    color: var(--uber-blue); /* Highlights header icons */
+    margin-right: 8px;
+}
+
+td {
+    padding: 22px;
+    background: var(--row-bg);
+    font-size: 16px;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Rounded corners for individual rows */
+td:first-child { 
+    border-radius: 12px 0 0 12px; 
+    border-left: 1px solid var(--glass-border);
+}
+td:last-child { 
+    border-radius: 0 12px 12px 0; 
+    border-right: 1px solid var(--glass-border);
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.08); /* Highlight row on hover */
+}
+
+/* Action Icon Styling (Update & Delete) */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-icon-update, .btn-icon-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Styling for the new Update icon */
+.btn-icon-update {
+    background: rgba(39, 110, 241, 0.1);
+    color: var(--uber-blue);
+    border: 1px solid rgba(39, 110, 241, 0.2);
+}
+
+.btn-icon-update:hover {
+    background: var(--uber-blue);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Advanced styling for the Delete icon */
+.btn-icon-delete {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 77, 77, 0.2);
+}
+
+.btn-icon-delete:hover {
+    background: #ff4d4d;
+    color: white;
+    transform: rotate(15deg) scale(1.1); /* Fun "trash shake" animation */
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
+}
